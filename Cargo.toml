@@ -5,10 +5,20 @@ resolver = "2"
 
 [workspace.dependencies]
 anyhow = "1.0.86"
-axum = { version = "0.7.5", features = ["http2", "query", "tracing", "multipart"] }
+axum = { version = "0.7.5", features = [
+    "http2",
+    "query",
+    "tracing",
+    "multipart",
+] }
 serde = { version = "1.0.204", features = ["derive"] }
 serde_yaml = "0.9.34"
-sqlx = { version = "0.8.0", features = ["postgres", "runtime-tokio-rustls"] }
+sqlx = { version = "0.7.0", features = [
+    "chrono",
+    "postgres",
+    "runtime-tokio-rustls",
+    "runtime-tokio",
+] }
 thiserror = "1.0.63"
 tokio = { version = "1.39.2", features = ["macros", "rt", "rt-multi-thread"] }
 tracing = "0.1.40"
