@@ -1,3 +1,42 @@
-### chat api
+### signup user
 
-GET http://192.168.31.217:6688/api/chat
+POST http://192.168.1.68:6688/api/signup
+Content-Type: application/json
+
+{
+    "fullname": "Alice Chen",
+    "email": "alice@acme.org",
+    "password": "123456"
+}
+
+
+### signup user
+
+POST http://192.168.1.68:6688/api/signup
+Content-Type: application/json
+
+{
+    "fullname": "Tom Chen",
+    "email": "tchen@acme.org",
+    "password": "123456"
+}
+
+### signin user (valid)
+
+POST http://192.168.1.68:6688/api/signin
+Content-Type: application/json
+
+{
+    "email": "tchen@acme.org",
+    "password": "123456"
+}
+
+### signin user (invalid)
+
+POST http://192.168.1.68:6688/api/signin
+Content-Type: application/json
+
+{
+    "email": "alice@acme.org",
+    "password": "123456"
+}
