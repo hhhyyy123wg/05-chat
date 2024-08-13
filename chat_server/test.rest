@@ -1,6 +1,6 @@
 ### signup user
 
-POST http://192.168.1.68:6688/api/signup
+POST http://localhost:6688/api/signup
 Content-Type: application/json
 
 {
@@ -9,21 +9,9 @@ Content-Type: application/json
     "password": "123456"
 }
 
-
-### signup user
-
-POST http://192.168.1.68:6688/api/signup
-Content-Type: application/json
-
-{
-    "fullname": "Tom Chen",
-    "email": "tchen@acme.org",
-    "password": "123456"
-}
-
 ### signin user (valid)
 
-POST http://192.168.1.68:6688/api/signin
+POST http://localhost:6688/api/signin
 Content-Type: application/json
 
 {
@@ -33,10 +21,20 @@ Content-Type: application/json
 
 ### signin user (invalid)
 
-POST http://192.168.1.68:6688/api/signin
+# @name signin
+POST http://localhost:6688/api/signin
 Content-Type: application/json
 
 {
     "email": "alice@acme.org",
     "password": "123456"
 }
+
+@token = {{signin.response.body.token}}
+
+
+### get chat list
+
+
+GET http://localhost:6688/api/chat
+Authorization: Bearer {{token}}

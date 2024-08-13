@@ -17,8 +17,12 @@ serde_json = "1.0.122"
 tracing-subscriber = { workspace = true }
 axum = { workspace = true }
 chrono = { version = "0.4.38", features = ["serde"] }
+axum-extra = { version = "0.9.3", features = ["typed-header"] }
 argon2 = { version = "0.5.3", features = ["std"] }
 jwt-simple = "0.12.9"
+tower = "0.4.13"
+tower-http = { version = "0.5.2", features = ["compression-full", "trace"] }
+uuid = { version = "1.8.0", features = ["v7", "serde"] }
 
 [dev-dependencies]
 http-body-util = "0.1.2"
