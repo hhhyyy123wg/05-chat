@@ -4,8 +4,9 @@ POST http://localhost:6688/api/signup
 Content-Type: application/json
 
 {
-    "fullname": "Alice Chen",
-    "email": "alice@acme.org",
+    "workspace": "acme",
+    "fullname": "Tyr Chen",
+    "email": "tchen@acme.org",
     "password": "123456"
 }
 
@@ -20,8 +21,6 @@ Content-Type: application/json
 }
 
 ### signin user (invalid)
-
-# @name signin
 POST http://localhost:6688/api/signin
 Content-Type: application/json
 
@@ -30,11 +29,26 @@ Content-Type: application/json
     "password": "123456"
 }
 
-@token = {{signin.response.body.token}}
+### signin user
 
+# @name signin
+POST http://localhost:6688/api/signin
+Content-Type: application/json
+
+{
+    "email": "tchen@acme.org",
+    "password": "123456"
+}
+
+@token = {{signin.response.body.token}}
 
 ### get chat list
 
 
 GET http://localhost:6688/api/chat
+Authorization: Bearer {{token}}
+
+### get user list
+
+GET http://localhost:6688/api/users
 Authorization: Bearer {{token}}
